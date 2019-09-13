@@ -2,7 +2,7 @@
   "name": "visual",
   "version": "0.1.0",
   "private": true,
-  "homepage" : "https://ceigh.gitlab.io/visual/",
+  "homepage" : "https://ceigh.gitlab.io/visual",
   "dependencies": {
     "js-sha512": "^0.8.0",
     "react": "^16.9.0",
