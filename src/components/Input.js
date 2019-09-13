@@ -11,5 +11,5 @@ export default function Input(props) {
   }, [props.setAppData, props.mode, value]);
 
   return <input placeholder='Type to :)' value={value} autoFocus={true}
-                onChange={e => setValue(e.target.value)}/>
+                spellCheck={false} onChange={e => setValue(e.target.value)}/>
 }

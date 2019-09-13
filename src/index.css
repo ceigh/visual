@@ -20,12 +20,8 @@ a {
   text-decoration: none;
 }
 
-a:hover {
-  filter: brightness(120%);
-}
-
 a:active {
-  filter: brightness(130%);
+  filter: brightness(110%);
 }
 
 p {

@@ -1,0 +1,28 @@
+image: node:latest
+
+before_script:
+  - npm i
+
+cache:
+  paths:
+    - node_modules/
+
+stages:
+  - build
+  - deploy
+
+react:
+  stage: build
+  script:
+    - npm run build
+  artifacts:
+    paths:
+      - build
+
+pages:
+  stage: deploy
+  script:
+    - mv build public
+  artifacts:
+    paths:
+      - public
