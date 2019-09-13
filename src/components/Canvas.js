@@ -10,6 +10,5 @@ export default function Canvas(props) {
     ctx.putImageData(imageData, 0, 0);
   }, [props.data, props.len]);
 
-  return <canvas ref={canvas} style={{display: 'block', zoom: 30}}
-                 width={props.len} height={props.len}/>
+  return <canvas ref={canvas} width={props.len} height={props.len}/>
 }

@@ -6,7 +6,8 @@ import Canvas from './Canvas';
 
 const modes = Object.keys(encode);
 const defaultMode = modes[~~(Math.random() * modes.length)];
-const defaultValue = 'Awesome Visual';
+const defaultValue = 'Awesome Creature';
+const defaultColor = '#' + Math.random().toString(16).substr(-6);
 
 export default function App() {
   const [mode, setMode] = useState(defaultMode);
@@ -14,7 +15,8 @@ export default function App() {
 
   return (
       <main>
-        <h1>Visual</h1>
+        <a href='/' style={{color: defaultColor}}>Visual</a>
+        <p>Transform your text to .png image by:</p>
         <Modes setAppMode={setMode} defaultMode={defaultMode}/>
         <Input setAppData={setData} value={defaultValue} mode={mode}/>
         {data.length ? <Canvas data={data}

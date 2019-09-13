@@ -25,6 +25,7 @@ const toRgba = (arr, val) => {
   return arr.concat(normal);
 };
 const wordToPixel = (word, hex = false) => {
+  if (!word) return [];
   const lower = word.toLowerCase();
   const rgxp = /[^0-9abcdef]/g;
   const esc = lower.replace(rgxp, '0');
@@ -38,10 +39,10 @@ const byWord = (str, flat = true, hex = false) => {
   const formatted = tools.oneSpace(str).trim();
   const colors = formatted.split(' ')
       .map(word => wordToPixel(word, hex));
-  return flat ? colors.flat() : colors;
+  return flat ? tools.arrayFlat(colors) : colors;
 };
 const byHash = str => {
-  return byWord(sha512(str).match(/.{1,4}/g).join(' '));
+  return str && byWord(sha512(str).match(/.{1,4}/g).join(' '));
 };
 const byChar = str => {
   const hexes = str.split('').map(c => {
@@ -52,12 +53,12 @@ const byChar = str => {
   const by2Octal = by2.map(a => a.map(h => parseInt(h, 16)));
   const padded = by2Octal.map(a => tools.arrayPadEnd(a, 4, 0));
   const reversed = padded.map(a => a.reverse());
-  return reversed.flat();
+  return tools.arrayFlat(reversed);
 };
 
 const encode = {
-  byWord,
-  byHash,
-  byChar,
+  Char: byChar,
+  Word: byWord,
+  Hash: byHash,
 };
 export default encode;

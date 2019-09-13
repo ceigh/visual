@@ -10,6 +10,6 @@ export default function Input(props) {
     [setData, props.setAppData].map(f => f(newData));
   }, [props.setAppData, props.mode, value]);
 
-  return <input placeholder='Type to translate' value={value} autoFocus={true}
+  return <input placeholder='Type to :)' value={value} autoFocus={true}
                 onChange={e => setValue(e.target.value)}/>
 }

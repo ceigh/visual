@@ -17,10 +17,12 @@ const fixedCharCodeAt = (str, idx) => {
 const arrayPadEnd = (arr, len, val) => {
   return [...arr, ...Array(len - arr.length).fill(val)]
 };
+const arrayFlat = arr => Array.prototype.concat.apply([], arr);
 
 const tools = {
   oneSpace,
   fixedCharCodeAt,
   arrayPadEnd,
+  arrayFlat,
 };
 export default tools
