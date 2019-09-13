@@ -12,8 +12,7 @@ const fixedCharCodeAt = (str, idx) => {
     if (isNaN(low)) return NaN;
     return ((hi - 0xD800) * 0x400) + (low - 0xDC00) + 0x10000;
   }
-  if (0xDC00 <= code && code <= 0xDFFF) return false;
-  return code;
+  if (!(0xDC00 <= code && code <= 0xDFFF)) return code;
 };
 const arrayPadEnd = (arr, len, val) => {
   return [...arr, ...Array(len - arr.length).fill(val)]

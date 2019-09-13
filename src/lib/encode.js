@@ -44,9 +44,10 @@ const byHash = str => {
   return byWord(sha512(str).match(/.{1,4}/g).join(' '));
 };
 const byChar = str => {
-  const hexes = str.split('')
-      .map(c => tools.fixedCharCodeAt(c)
-          .toString(16));
+  const hexes = str.split('').map(c => {
+    const code = tools.fixedCharCodeAt(c);
+    return isNaN(code) ? '3f' : code.toString(16);
+  });
   const by2 = hexes.map(h => h.match(/.{1,2}/g));
   const by2Octal = by2.map(a => a.map(h => parseInt(h, 16)));
   const padded = by2Octal.map(a => tools.arrayPadEnd(a, 4, 0));
