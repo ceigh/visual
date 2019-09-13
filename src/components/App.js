@@ -15,7 +15,7 @@ export default function App() {
 
   return (
       <main>
-        <a href='/' style={{color: defaultColor}}>Visual</a>
+        <a href='/visual' style={{color: defaultColor}}>Visual</a>
         <p>Transform your text to .png image by:</p>
         <Modes setAppMode={setMode} defaultMode={defaultMode}/>
         <Input setAppData={setData} value={defaultValue} mode={mode}/>
